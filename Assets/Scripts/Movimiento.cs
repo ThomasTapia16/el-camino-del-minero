@@ -34,8 +34,14 @@ public class Movimiento : MonoBehaviour
     private void FixedUpdate()
     {
         if (esIzq)
+        {
+            Debug.Log("izq");
             personaje.AddForce(new Vector2(-fuerza, 0) * Time.deltaTime);
-        if(esDer)
+        }
+        if (esDer)
+        {
+            Debug.Log("der");
             personaje.AddForce(new Vector2(fuerza, 0) * Time.deltaTime);
+        }
     }
 }

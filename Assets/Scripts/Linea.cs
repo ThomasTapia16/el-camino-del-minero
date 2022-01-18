@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Linea : MonoBehaviour
 {
-    public GameObject lineaPre;
+    public GameObject lineaPre,lineaG;
     public GameObject lineaActual;
     public LineRenderer lineR;
     public EdgeCollider2D collider;
@@ -26,12 +26,19 @@ public class Linea : MonoBehaviour
             {
                 UpdateLine(tempPos);
             }
-        }   
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            Debug.Log("mouse up");
+
+            lineaG = Instantiate(lineaG, Vector3.zero, Quaternion.identity);
+        }
     }
 
     void crearLinea()
     {
         lineaActual = Instantiate (lineaPre, Vector3.zero, Quaternion.identity);
+
         lineR = lineaActual.GetComponent<LineRenderer>();
         collider = lineaActual.GetComponent<EdgeCollider2D>();
         mousePos.Clear();
